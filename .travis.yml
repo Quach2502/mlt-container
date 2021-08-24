@@ -12,13 +12,13 @@ script:
   - docker run -e CI=true test npm run test
 
 after_success:
-  - docker build -t dq/mlt-frontend ./client
-  - docker build -t dq/mlt-backend ./server
-  - docker build -t dq/mlt-nginx ./nginx
-  - docker build -t dq/mlt-worker ./worker
+  - docker build -t davidq25/mlt-frontend ./client
+  - docker build -t davidq25/mlt-backend ./server
+  - docker build -t davidq25/mlt-nginx ./nginx
+  - docker build -t davidq25/mlt-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push dq/mlt-frontend
-  - docker push dq/mlt-backend
-  - docker push dq/mlt-nginx
-  - docker push dq/mlt-worker
+  - docker push davidq25/mlt-frontend
+  - docker push davidq25/mlt-backend
+  - docker push davidq25/mlt-nginx
+  - docker push davidq25/mlt-worker
 
